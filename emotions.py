@@ -8,9 +8,9 @@ from sklearn.svm import SVC
 import glob, random, math, numpy as np, itertools
 
 
-PREDICTOR_PATH = "/Users/NikkiBayar1/Workspace/GenLife/GenLife/dlib/python_examples/shape_predictor_68_face_landmarks (1).dat"
+PREDICTOR_PATH = "./shape_predictor_68_face_landmarks (1).dat"
 predictor = dlib.shape_predictor(PREDICTOR_PATH)
-cascade_path = "/Users/NikkiBayar1/opencv/data/haarcascades/haarcascade_frontalface_default.xml"
+cascade_path = "./haarcascade_frontalface_default.xml"
 cascade = cv2.CascadeClassifier(cascade_path)
 
 FACE_POINTS = list(range(17, 68))
@@ -47,7 +47,7 @@ def annotate_landmarks(im, landmarks):
     return im
 
 def get_images_and_labels():
-    base_dir = '/Users/NikkiBayar1/Desktop/sorted_sets'
+    base_dir = './sorted_sets'
     imagesName_list = []
     label_list = []
     children = os.listdir(base_dir)
@@ -78,5 +78,5 @@ def make_classification(img):
     return classifier.predict(input_landmarks)
 
 
-img = cv2.imread('/Users/NikkiBayar1/Desktop/PictureData/face1.jpg')
+img = cv2.imread('./face1.jpg')
 print make_classification(img)
